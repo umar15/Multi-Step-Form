@@ -1,6 +1,7 @@
 import React from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import * as Yup from "yup";
+import Button from "@material-ui/core/Button";
 
 interface Props {
 	handleNext: () => void;
@@ -21,15 +22,25 @@ const Form1: React.FC<Props> = ({ handleNext }) => {
 			onSubmit={() => handleNext()}
 		>
 			<Form>
-				<label htmlFor="firstName">First Name</label>
-				<Field name="firstName" type="text" />
+				<Field
+					className="field"
+					name="firstName"
+					type="text"
+					placeholder="first name"
+				/>
 				<ErrorMessage name="firstName" />
 				<br />
-				<label htmlFor="lastName">Last Name</label>
-				<Field name="lastName" type="text" />
+				<Field
+					className="field"
+					name="lastName"
+					type="text"
+					placeholder="last name"
+				/>
 				<ErrorMessage name="lastName" />
 				<br />
-				<button type="submit">submit</button>
+				<Button type="submit" variant="contained" color="primary">
+					Next
+				</Button>
 			</Form>
 		</Formik>
 	);

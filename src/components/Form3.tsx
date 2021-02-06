@@ -1,6 +1,7 @@
 import React, { FC } from "react";
 import { Formik, Field, ErrorMessage, Form } from "formik";
 import * as Yup from "yup";
+import Button from "@material-ui/core/Button";
 
 interface Props {
 	handleNext: () => void;
@@ -15,15 +16,21 @@ const Form3: FC<Props> = ({ handleNext }) => {
 			}}
 			onSubmit={() => handleNext()}
 			validationSchema={Yup.object({
-				description: Yup.string().required("Required"),
+				address: Yup.string().required("Required"),
 			})}
 		>
 			<Form>
-				<label htmlFor="description">Description</label>
-				<Field name="description" type="text" />
-				<ErrorMessage name="description" />
+				<Field
+					className="field"
+					name="address"
+					type="text"
+					placeholder="address"
+				/>
+				<ErrorMessage name="address" />
 				<br />
-				<button type="submit">submit</button>
+				<Button type="submit" variant="contained" color="primary">
+					Submit
+				</Button>
 			</Form>
 		</Formik>
 	);

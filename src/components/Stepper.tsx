@@ -52,10 +52,6 @@ const StepperComponent = () => {
 		setActiveStep(0);
 	};
 
-	const handleBack = () => {
-		setActiveStep((active) => active - 1);
-	};
-
 	return (
 		<div className={classes.root}>
 			<Stepper activeStep={activeStep} alternativeLabel>
@@ -71,7 +67,13 @@ const StepperComponent = () => {
 						<Typography className={classes.instructions}>
 							All steps completed
 						</Typography>
-						<Button onClick={() => handleReset()}>Reset</Button>
+						<Button
+							variant="contained"
+							color="primary"
+							onClick={() => handleReset()}
+						>
+							Reset
+						</Button>
 					</div>
 				) : (
 					<div>
